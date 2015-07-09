@@ -17,46 +17,45 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #ifndef VECTOR_3_H
-#define VECTOR_3_H
+	#define VECTOR_3_H
 
-#ifdef ENABLE_AUTO_BED_LEVELING
-class matrix_3x3;
+	#ifdef ENABLE_AUTO_BED_LEVELING
+		class matrix_3x3;
 
-struct vector_3
-{
-	float x, y, z;
+		struct vector_3
+		{
+			float x, y, z;
 
-        vector_3();
-	vector_3(float x, float y, float z);
+		  vector_3();
+			vector_3(float x, float y, float z);
 
-	static vector_3 cross(vector_3 a, vector_3 b);
+			static vector_3 cross(vector_3 a, vector_3 b);
 
-	vector_3 operator+(vector_3 v);
-	vector_3 operator-(vector_3 v);
-	void normalize();
-	float get_length();
-	vector_3 get_normal();
+			vector_3 operator+(vector_3 v);
+			vector_3 operator-(vector_3 v);
+			void normalize();
+			float get_length();
+			vector_3 get_normal();
 
-	void debug(char* title);
-	
-	void apply_rotation(matrix_3x3 matrix);
-};
+			void debug(char* title);
 
-struct matrix_3x3
-{
-	float matrix[9];
+			void apply_rotation(matrix_3x3 matrix);
+		};
 
-	static matrix_3x3 create_from_rows(vector_3 row_0, vector_3 row_1, vector_3 row_2);
-	static matrix_3x3 create_look_at(vector_3 target);
-	static matrix_3x3 transpose(matrix_3x3 original);
+		struct matrix_3x3
+		{
+			float matrix[9];
 
-	void set_to_identity();
+			static matrix_3x3 create_from_rows(vector_3 row_0, vector_3 row_1, vector_3 row_2);
+			static matrix_3x3 create_look_at(vector_3 target);
+			static matrix_3x3 transpose(matrix_3x3 original);
 
-	void debug(char* title);
-};
+			void set_to_identity();
+
+			void debug(char* title);
+		};
 
 
-void apply_rotation_xyz(matrix_3x3 rotationMatrix, float &x, float& y, float& z);
-#endif // ENABLE_AUTO_BED_LEVELING
-
+		void apply_rotation_xyz(matrix_3x3 rotationMatrix, float &x, float& y, float& z);
+	#endif // ENABLE_AUTO_BED_LEVELING
 #endif // VECTOR_3_H
