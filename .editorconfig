@@ -1,0 +1,13 @@
+# EditorConfig is awesome: http://EditorConfig.org
+root = true # This is the root EditorConfig file
+
+# Unix-style newlines with a newline ending every file for all file types
+[*]
+end-of-line = lf
+insert_final_newline = true
+
+# C, C++, headers, Arduino files
+[*.{c,cpp,h,hpp,ino,pde}]
+charset = utf-8 # Force UTF-8, always
+indent_style = space # Only spaces
+indent_size = 2 # Two spaces of indent
